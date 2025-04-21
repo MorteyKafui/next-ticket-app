@@ -1,7 +1,6 @@
 import Heading from "@/components/shared/Heading";
 import { initialTickets } from "@/data";
 import TicketItem from "@/features/ticket/components/TicketItem";
-import { CircleCheck, FileText, PencilIcon } from "lucide-react";
 
 const TicketsPage = () => {
   return (

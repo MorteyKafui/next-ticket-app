@@ -1,17 +1,11 @@
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ticketPath } from "@/paths";
+import clsx from "clsx";
+import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
 import { TICKET_ICONS } from "../constant";
 import { Ticket } from "../types";
-import { SquareArrowOutUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import clsx from "clsx";
 
 type TicketItemProps = {
   ticket: Ticket;
