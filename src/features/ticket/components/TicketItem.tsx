@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ticketPath } from "@/paths";
+import { ticketPath, ticketsPath } from "@/paths";
 import clsx from "clsx";
-import { SquareArrowOutUpRight, Trash } from "lucide-react";
+import { Pencil, SquareArrowOutUpRight, Trash } from "lucide-react";
 import Link from "next/link";
 import { TICKET_ICONS } from "../constant";
 import { Ticket } from "@/generated/prisma/client";
@@ -29,6 +29,13 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
       </Button>
     </form>
   );
+  const editButton = (
+    <Button asChild size={"icon"} variant={"outline"}>
+      <Link prefetch href={`${ticketsPath()}/${ticket.id}/edit`}>
+        <Pencil className="size-4" />
+      </Link>
+    </Button>
+  );
 
   return (
     <div
@@ -54,7 +61,17 @@ const TicketItem = ({ ticket, isDetail }: TicketItemProps) => {
         </CardContent>
       </Card>
       <div className="flex flex-col gap-y-1">
-        {isDetail ? deleteButton : detailButton}
+        {isDetail ? (
+          <>
+            {editButton}
+            {deleteButton}
+          </>
+        ) : (
+          <>
+            {detailButton}
+            {editButton}
+          </>
+        )}
       </div>
     </div>
   );
